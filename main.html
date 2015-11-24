@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+<title>Da Feelz</title>
+<style> 
+body{background:white;
+color:#55ddee;
+font-family: 'Nunito', sans-serif;
+}
+#trendingLinks{display: inline;
+float: right;
+margin:0px 1% 0px 0px;
+}
+a{color:#55ddee;}
+
+
+a:hover {
+    color:#666666;}
+div.emojis{
+height: 180px;}
+
+img{transition-property: height and width;
+transition-duration: 0.75s;}
+
+
+#back{
+z-index: -2;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;}
+
+#login{
+z-index: 2;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+margin-top: -45px;}
+
+
+
+</style>
+</head>
+<body>
+<a href="file:///Users/yuyulai/Desktop/DaFeels/main.html"align="left" style="color:#44bbcc; margin: 10% 0% 5px 3%; font-size: 50px; text-decoration:none;"> Da Feelz </a>   
+<h2 align="right" style="margin: 1% 1% 1% 0px;">Trending right now </h2>
+<div id="trendingLinks">    
+<a href="#" style="text-decoration: none; margin:0px 15px 0px 15px;">Posts</a>
+<a href="#" style="text-decoration: none; margin:0px 15px 0px 15px;">Pictures</a>
+<a href="#" style="text-decoration: none; margin:0px 15px 0px 15px; ">Topics</a>
+<a href="#" style="text-decoration: none; margin:0px 15px 0px 15px; ">Feels</a>
+<a href="#" style="text-decoration: none; margin:0px 15px 0px 15px;">Events</a>
+</div>
+<BR CLEAR=right>
+<center>
+<h1 style="font-size:50px; margin: 5% 0px 5% 0px;">How do you feel today?</h1>
+</center>
+
+<center>
+<div class="emojis">
+<img class="emoji" id="happy" onmouseover="bigImg(this)" onmouseout="normalImg(this)" src = "http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0004_large.png?v=1369543931" style ="width:128px;height:128px" />
+
+
+<img class="emoji" id="sad" onmouseover="bigImg(this)"  onmouseout="normalImg(this)" src = "http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0023_large.png?v=1369543518" style ="width:128px;height:128px" />
+
+ 
+<img class="emoji" id="laugh" onmouseover="bigImg(this)" onmouseout="normalImg(this)" src = "http://cdn.playbuzz.com/cdn/2bf918b6-8077-4ae4-aa87-8c5529c4a03a/d1147f20-247b-4c18-b96d-0a857af34246.png" style ="width:128px;height:128px" />
+
+
+<img class="emoji" id="angry" onmouseover="bigImg(this)" onmouseout="normalImg(this)" src = "http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0035_large.png?v=1369543848" style ="width:128px;height:128px" />
+
+
+<img class="emoji" id="annoyed" onmouseover="bigImg(this)" onmouseout="normalImg(this)" src = "https://cdn.shopify.com/s/files/1/0185/5092/products/persons-0019.png?v=1369544043" style ="width:128px;height:128px" />
+
+</center>
+<BR CLEAR=all>
+</div>
+    <center>
+    <div id="back">
+    <a href="file:///Users/yuyulai/Desktop/DaFeels/signup.html" style="background:#55ddee; border-color:#55ddee; margin: 4% 2.5% 0px 2.5%; " type="button" class="btn btn-primary">Sign Up</a>
+    <button onClick="loginButton()" style="background:#55ddee; border-color:#55ddee; margin: 4% 2.5% 0px 2.5%; " type="button" class="btn btn-primary">Login</button>
+</div>
+</center>
+<center>
+    <div id="login" style="visibility: hidden; background:white; width:300px; height:200px; border-style: groove; border-color:#DDDDDD; border-radius: 10%;">
+    <p style="margin: 15% 0px 0px 4%;">Username: <input style="margin: 0px 0px 10px 0px;" type="text" name="username" value=""></p><br>
+    <p style="margin: 0px 0px 0px 4%;">Password: <input style="margin: 0px 0px 0px 3px;" type="password" name="password" value="" id ="password"><br></p>
+<center><input style="color:white; background:#55ddee; margin: 8% 0px 0px 0px;"type="submit" value="Log in"><button onClick="loginButton()" style="color:white; background:#55ddee; margin: 8% 0px 0px 30px;"> Hide </button></center>
+</div>
+</center>
+</body>
+<script>
+function bigImg(x) {
+    x.style.height = "175px";
+    x.style.width = "175px";
+}
+
+
+function normalImg(x) {
+    x.style.height = "128px";
+    x.style.width = "128px";
+
+}
+
+var click = 1;
+function loginButton(){ click = click + 1;
+if(click%2==0){
+document.getElementById("login").style.visibility= "visible";}
+else{document.getElementById("login").style.visibility= "hidden";
+click =1;}
+
+}
+
+function emojiClicked(emoji) {
+    alert(emoji);
+}
+
+ $(document).ready(function keyword() {
+    
+
+        $('.emoji').click(function(el) {
+            window.location.href = 'keyword.html?emoji=' + this.id;
+        });
+    });
+
+</script>
+</html>
+
+
+
+

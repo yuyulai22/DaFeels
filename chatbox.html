@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <!-- Firechat -->
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css" />
+    <script src="https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js"></script>
+
+    
+    <style>
+      h3{ 
+        position: relative;
+        font-size: 30px;\
+      }
+
+      #firechat-wrapper-happy, #firechat-wrapper-sad, #firechat-wrapper-mad, #firechat-wrapper-laughing, #firechat-wrapper-annoyed {
+        height: 500px;
+        max-width: 350px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        margin: 50px auto;
+        text-align: center;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 5px 25px #666;
+        -moz-box-shadow: 0 5px 25px #666;
+        box-shadow: 0 5px 25px #666;
+      }
+
+    </style>
+  </head>
+
+  <!--uses Firebase Simple Login to create "anonymous" user sessions in Firebase,-->
+
+<body>
+
+<div id="firechat-wrapper"></div>
+<script type="text/javascript">
+  var wrapperId;
+  function openChatBox() {
+    var input = getUrlParameter('emoji');
+    console.log("input = " + input);
+    if (input === "happyHackathon") {
+       //bring them to the happy chat
+       // <h3> I am happy because of my friends. </h3> //test statement to make sure the program runs smoothly
+      wrapperId = "firechat-wrapper-happy";
+
+    } else if (input === "sadWar"){
+       // bring them to the sad chat
+      // <h3> I am sad because of exams. </h3>
+      wrapperId = "firechat-wrapper-sad";
+    }else if (input === "madTraffic"){
+       //bring them to the mad chat
+      // <h3> I am mad because of traffic. </h3>
+      wrapperId = "firechat-wrapper-mad";
+    }else if (input === "laughingJimmyfallon"){
+       // bring them to the laughing chat
+        // <h3> I am laughing because of jimmyfallon. </h3>
+      wrapperId = "firechat-wrapper-laughing";
+    }else if (input === "annoyedRain"){
+       // bring them to the annoyed chat
+        // <h3> I am annoyed because of rain. </h3>
+      wrapperId = "firechat-wrapper-annoyed";
+    } else {
+      wrapperId = "firechat-wrapper-happy";
+    }
+    console.log("wrapperId = " + wrapperId);
+    return input;
+  }
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+  console.log("openChatBox() = " + openChatBox());
+  console.log("document Id = " + document.getElementById("firechat-wrapper"));
+  var fireBaseRef = new Firebase("https://firechat-demo.firebaseio.com");
+  var chat = new FirechatUI(fireBaseRef, document.getElementById("firechat-wrapper"));
+  
+  fireBaseRef.onAuth(function(authData) {
+    if (authData) {
+      
+      chat.setUser(authData.uid, "Anonymous" + authData.uid.substr(10, 8));
+      chat._chat.createRoom(openChatBox());
+      chat._chat.enterRoom(openChatBox());
+    } else {
+      fireBaseRef.authAnonymously(function(error, authData) {
+        if (error) {
+          console.log(error);
+        }
+      });
+    }
+  });
+</script>
+    
+
+
+  
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

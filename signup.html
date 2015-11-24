@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Da Feelz Sign Up</title>
+<style>
+body{background:white;
+color:#55ddee;
+font-family: 'Nunito', sans-serif;
+}
+a{color:#55ddee;
+text-decoration:none;}
+a:hover {color:#666666;}
+
+div.signUp{ display: inline;
+}
+
+#border{border-style:dashed;
+border-color: #55ddee;
+width: 500px;
+height: 400px;
+border-radius: 10%;
+margin: 4% 0px 0px 0px;}
+</style>
+</head>
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+<body>
+<header>
+<a align="left" style="color:#44bbcc; margin: -3% 0% 5px 2.60%; font-size: 50px;" href="file:///Users/yuyulai/Desktop/DaFeels/main.html"> Da Feelz </a>
+</header>
+<center>
+<h1>Quick easy sign up!</h1>
+
+<div id="border">
+<div class="signUp">
+<p style="margin: 6% 0px 0px 0px;">Username: <input style="margin: 0px 0px 0px 70px;" type="text" name="username" value=""></p><br>
+<p>Email: <input style="margin: 0px 0px 0px 105px;" type="text" name="email" value=""></p><br>
+<p>Password: <input style="margin: 0px 0px 0px 75px;" type="password" name="password" value="" id ="password"><br>
+<input onclick="if(this.checked){showPass()} else{noPass()}" type="checkbox" name="showPass" value="conPass"><small>show password</small> </p><br>
+<p>Confirm Password: <input id="conPassword" style="margin: 0px 0px 0px 10px;"type="password" name="conPassword" value=""> <br>
+<input onclick="if(this.checked){showConPass()} else{noConPass()}" type="checkbox" name="showConPass" value="conPass"> <small>show password</small></p><br>
+
+<input style="background:#55ddee; color:white;" type="submit" value="Sign Up">
+</div>
+</div>
+</center>
+</body>
+
+<script>
+function showPass(){
+document.getElementById("password").type = "text";}
+
+function noPass(){
+document.getElementById("password").type = "password";}
+
+function showConPass(){
+document.getElementById("conPassword").type = "text";}
+
+function noConPass(){
+document.getElementById("conPassword").type = "password";}
+
+
+</script>
+
+</html>

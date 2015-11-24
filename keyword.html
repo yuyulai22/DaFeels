@@ -1,0 +1,108 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+<title>Da Feelz</title>
+<style> 
+body{background:white;
+color:#55ddee;
+font-family: 'Nunito', sans-serif;
+}
+
+img {
+    width:128px;
+    height:128px;
+    position: relative;
+    top:40px;
+}
+
+h1, p{
+    display:inline;
+  font-size:36pt;
+}
+
+h2{
+    font-size:30pt;
+}
+
+#textBox{
+    width:350px;
+    height:40px;
+    font-size:20pt;
+}
+
+</style>
+</head>
+<body>
+
+<center>
+<h1>Why are you feeling<img id="emojiLink" src = ""/> ?</h1>
+
+<form>
+  <label for="keywordLabel"><h2>Enter a keyword:</h2></label><br>
+  <input type="text" name="keyword" id="keywordLabel">
+  <input type='button' onclick='GetURLParameter()' value='SUBMIT'> 
+  <br>
+</form>
+</center>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+var emojiLink;
+
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    console.log("sPageuRL = " + sPageURL);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            console.log("sParameterName = " + sParameterName[1]);
+            return sParameterName[1];
+        }
+    }
+
+    var dt_value = document.getElementById("keywordLabel").value;
+    var url = window.location.href;    
+    var sjdurl =  url+dt_value;
+
+    console.log("sjdurl = " + sjdurl);
+    window.location.replace("file:///Users/yuyulai/Desktop/DaFeels/"+"chatbox.html?"+"emoji="+dt_value);
+
+ 
+}
+
+var emoji = GetURLParameter('emoji');
+
+
+if(emoji== "happy"){
+ emojiLink = "http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0004_large.png?v=1369543931";
+document.getElementById("emojiLink").src =emojiLink;
+  
+ }
+if(emoji== "sad"){
+ emojiLink = "http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0023_large.png?v=1369543518";
+document.getElementById("emojiLink").src =emojiLink;
+ }
+if(emoji== "laugh"){
+ emojiLink = "http://cdn.playbuzz.com/cdn/2bf918b6-8077-4ae4-aa87-8c5529c4a03a/d1147f20-247b-4c18-b96d-0a857af34246.png";
+document.getElementById("emojiLink").src =emojiLink;
+ }
+if(emoji== "angry"){
+ emojiLink = "http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0035_large.png?v=1369543848";
+document.getElementById("emojiLink").src =emojiLink;
+ }
+if(emoji== "annoyed"){
+ emojiLink = "https://cdn.shopify.com/s/files/1/0185/5092/products/persons-0019.png?v=1369544043";
+document.getElementById("emojiLink").src =emojiLink;
+ } 
+
+</script>
+
+
+</body>
+</html>
